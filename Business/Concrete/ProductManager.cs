@@ -12,9 +12,9 @@ namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        IProductDal _productDal;
+        ICategoryDal _productDal;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(ICategoryDal productDal)
         {
             _productDal = productDal;
         }
@@ -23,7 +23,7 @@ namespace Business.Concrete
         {
             //iş kodları
 
-            return _productDal.GetAll();
+            return _productDal.GetAll(p=> p.CategoryId == 2 );
         }
     }
 }
