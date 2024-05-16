@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryProductDal : ICategoryDal
+    public class InMemoryProductDal : IProductDal
     {
         List<Product> _products;
 
@@ -30,7 +30,7 @@ namespace DataAccess.Concrete.InMemory
             _products.Add(product);
         }
 
-        public void Delete(Product product)
+        public void Delete(Product product) 
         {
             //LINQ - Language Integrated Query
             //p=> LAMBDA demek
