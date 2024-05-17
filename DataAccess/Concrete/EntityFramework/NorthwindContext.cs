@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    //Db tabloları ile projenin classlarını bağlamak istiyoruz
+    //Contect : Db tabloları ile projenin classlarını bağlama
     public class NorthwindContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) //projem hangi Db ile ilişkili onu belli ediyoruz
         {
             optionsBuilder.UseSqlServer(@"Server =(localdb)\mssqllocaldb; Database=Northwind; Trusted_Connection =true");
         }

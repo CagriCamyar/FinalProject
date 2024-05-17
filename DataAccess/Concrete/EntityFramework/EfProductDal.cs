@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (NorthwindContext context = new NorthwindContext())
             {
-                 var addedEntity = context.Entry(entity);
+                var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
             }
@@ -26,12 +27,14 @@ namespace DataAccess.Concrete.EntityFramework
 
         public void Delete(Product entity)
         {
-            using (NorthwindContext context = new NorthwindContext())
+           using (NorthwindContext context = new NorthwindContext())
             {
-                var deletedEntity = context.Entry(entity);
+                var deletedEntity = context.Remove(entity);
                 deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
             }
+                
+
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
@@ -39,15 +42,15 @@ namespace DataAccess.Concrete.EntityFramework
             using (NorthwindContext context = new NorthwindContext())
             {
                 return context.Set<Product>().SingleOrDefault(filter);
-            }        
+            }
         }
 
         public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            using (NorthwindContext context = new NorthwindContext())
+            using (NorthwindContext context =new NorthwindContext())
             {
                 return filter == null ? context.Set<Product>().ToList() : context.Set<Product>().Where(filter).ToList();
-            }        
+            }
         }
 
 
