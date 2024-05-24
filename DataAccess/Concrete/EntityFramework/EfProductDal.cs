@@ -32,9 +32,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var deletedEntity = context.Remove(entity);
                 deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
-            }
-                
-
+            }                
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
@@ -52,7 +50,6 @@ namespace DataAccess.Concrete.EntityFramework
                 return filter == null ? context.Set<Product>().ToList() : context.Set<Product>().Where(filter).ToList();
             }
         }
-
 
         public void Update(Product entity)
         {
