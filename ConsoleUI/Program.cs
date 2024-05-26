@@ -2,6 +2,7 @@
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 
 namespace ConsoleUI
@@ -10,12 +11,28 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            ProductManager productManager = new ProductManager(new EfProductDal());
+            //DTO ==> Data Transformation Object
+            ProductTest();
+            //CategoryTest();
+        }
 
-            foreach (Product product in productManager.GetAll())
+        private static void CategoryTest()
+        {
+            CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+            foreach (Category category in categoryManager.GetAll())
             {
-                Console.WriteLine(product.ProductName);
+                Console.WriteLine(category.CategoryName);
             }
+        }
+
+        private static void ProductTest()
+        {
+                ProductManager productManager = new ProductManager(new EfProductDal());
+
+                foreach (ProductDetailDto product in productManager.GetProductDetails())
+                {
+                    Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+                }
         }
     }
 }

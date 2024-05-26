@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -40,6 +41,11 @@ namespace Business.Concrete
         public List<Product> GetByUnitsInStock(short id)
         {
             return _productDal.GetAll(p => p.UnitsInStock == id);
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            return _productDal.GetProductDetails();
         }
     }
 }
