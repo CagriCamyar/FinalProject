@@ -35,6 +35,8 @@ namespace Business.Concrete
 
         }
         
+        //Claim - iddia etmek // JWT - Json Web Token
+        //[SecuredOperation("product.add, admin")] //product.add veya admin yetkilerinden birine sahip olmali
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
