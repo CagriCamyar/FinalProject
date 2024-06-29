@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
@@ -36,7 +37,7 @@ namespace Business.Concrete
         }
         
         //Claim - iddia etmek // JWT - Json Web Token
-        //[SecuredOperation("product.add, admin")] //product.add veya admin yetkilerinden birine sahip olmali
+        [SecuredOperation("product.add, admin")] //product.add veya admin yetkilerinden birine sahip olmali
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
