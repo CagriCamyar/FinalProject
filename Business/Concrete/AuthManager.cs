@@ -19,7 +19,7 @@ namespace Business.Concrete
         private ITokenHelper _tokenHelper;
 
         public AuthManager(IUserService userService, ITokenHelper tokenHelper)
-        {
+        {   
             _userService = userService;
             _tokenHelper = tokenHelper;
         }

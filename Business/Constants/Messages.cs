@@ -20,7 +20,7 @@ namespace Business.Constants
         public static string AuthorizationDenied = "Bu Islemi Yapmak Icin Yetkiniz Yok";
         public static string UserRegistered = "Kayit Basarili";
         public static string UserNotFound = "Kullanici Bulunamadi";
-        public static string PasswordError = "Hatali Parola Girdiniz";
+        public static string PasswordError = "Hatali Parola";
         public static string SuccessfulLogin = "Giris Basarili";
         public static string UserAlreadyExists = "Kullanici Mevcut";
         public static string AccessTokenCreated = "Token  Olusturuldu";
